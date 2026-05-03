@@ -1,5 +1,6 @@
 package org.spring.springsecurity.neotrackbackend.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealthController {
 
     @GetMapping("/")
-    public String health() {
-        return "NeoTrack Backend is running! 🚀";
+    public ResponseEntity<String> health() {
+        return ResponseEntity.ok("NeoTrack Backend is running! 🚀");
     }
 
     @GetMapping("/health")
-    public String healthCheck() {
-        return "OK - NeoTrack Backend is healthy";
+    public ResponseEntity<String> healthCheck() {
+        return ResponseEntity.ok("OK - NeoTrack Backend is healthy");
     }
 }
