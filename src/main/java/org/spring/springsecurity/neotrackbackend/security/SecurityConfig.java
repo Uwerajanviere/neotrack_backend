@@ -33,9 +33,6 @@ public class SecurityConfig {
             )
             .headers(h -> h.frameOptions(f -> f.disable()));
         
-        // Only add JWT filter for protected endpoints
-        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-        
         return http.build();
     }
 
