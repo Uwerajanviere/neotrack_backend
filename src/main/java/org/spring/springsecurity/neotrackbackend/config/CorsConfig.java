@@ -19,7 +19,9 @@ public class CorsConfig {
                 "http://localhost:3000",
                 "http://localhost:3001",
                 "http://127.0.0.1:3000",
-                "http://127.0.0.1:5173"
+                "http://127.0.0.1:5173",
+                "https://*.vercel.app",
+                "https://vercel.app"
         ));
         config.setAllowedOriginPatterns(List.of("http://192.168.*.*:*", "http://10.*.*.*:*"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));

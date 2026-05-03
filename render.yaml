@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: neotrack-backend
+    env: java
+    plan: free
+    buildCommand: "./mvnw clean package -DskipTests"
+    startCommand: "java -jar target/Neotrack-Backend-0.0.1-SNAPSHOT.jar"
+    envVars:
+      - key: JAVA_VERSION
+        value: 21
+      - key: DB_URL
+        fromDatabase:
+          name: neotrack-db
+          property: connectionString
+      - key: DB_USERNAME
+        fromDatabase:
+          name: neotrack-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: neotrack-db
+          property: password
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 8080
+
+databases:
+  - name: neotrack-db
+    plan: free
+    databaseName: neotrack
+    user: neotrack_user
